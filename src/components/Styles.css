@@ -1,0 +1,15 @@
+.login{
+    margin-top: 2rem;
+    background-color: gray;
+    padding: 1rem;
+    border-radius: 100px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+
+}
+.button{
+    margin-top: 5rem;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
