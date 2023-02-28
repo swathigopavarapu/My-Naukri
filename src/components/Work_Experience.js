@@ -1,9 +1,22 @@
 import { Typography,Box,Grid,Card } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { ProfileContext } from "./ProfileStore";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-function Work_Experience(){
+import DeleteWork_Experience from './DeleteWork_Experience'
+function Work_Experience(props){
+    const [open,updateOpen]=useState(false)
+    const [name,updateName]=useState('')
+    const handleOpen =(title)=>{
+        updateName(title)
+        console.log('delete the function',title)
+        updateOpen(true)
+    }
+const handleClose=()=>{
+    console.log('close the function')
+    updateOpen(false)
+}
+
     return(
         <>
         <ProfileContext.Consumer>
@@ -17,7 +30,7 @@ function Work_Experience(){
                             <Grid sx={{display: 'flex',flexDirection: 'row',justifyContent:'space-between'}} marginTop='10px'marginLeft='10px'marginRight='10px' marginBottom='10px'>
                                 <Typography fontSize='10px'>{work.title}</Typography>
                                 <span>
-                                     <Typography ><DeleteIcon fontSize='10px'></DeleteIcon> <EditIcon fontSize='10px'></EditIcon></Typography>
+                                     <Typography ><DeleteIcon fontSize='10px'onClick={()=>handleOpen(work.title)} ></DeleteIcon> <EditIcon fontSize='10px'></EditIcon></Typography>
                                          </span>
                                 
                             </Grid><hr></hr>
@@ -47,6 +60,8 @@ function Work_Experience(){
                         </Card>
                     </Grid>
                     ))}
+
+                    { open? < DeleteWork_Experience handleClose={handleClose} open={open} name={name}/>: null}
 
                     </Grid>
                 </Box>

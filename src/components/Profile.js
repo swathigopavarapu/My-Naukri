@@ -29,10 +29,10 @@ function Profile(){
   </Grid>
 
   <Box   sx={{ flexGrow: 1 }}>
-    <Grid container spacing={2} margin={2}>
-        <Grid  xs={12} md={8} lg={8} marginRight={2 } >
+    <Grid container spacing={2} >
+        <Grid  xs={12} md={8} lg={8} >
             
-            <Card container sx={{alignItems:'center',display:'flex'}} >
+            <Card container sx={{alignItems:'center',display:'flex',marginRight:'1rem'}} >
                 <Grid xs={12} md={3} lg={3} marginRight={4} marginLeft={2}>
                <span className="" >
                 <Avatar src={logo1}  sx={{ width: 100, height: 100 }}></Avatar>
@@ -68,15 +68,15 @@ function Profile(){
                         <span  className="login"><StackedLineChartIcon/></span>
                        
                         </span>
-                        <div>
-                        <Button  variant="contained"sx={{marginBottom:2,marginTop:5}}  direction="right">Download Resume</Button>
-                        <Button variant="contained" sx={{ marginLeft:2,marginRight:2 , marginBottom:2,marginTop:5}} direction="right">Your Resume</Button>
+                        <div style={{display:'flex',alignItems:'center'}}>
+                        <Button size="small" variant="contained"sx={{marginBottom:2,marginTop:5}}  direction="right">Download Resume</Button>
+                        <Button size="small" variant="contained" sx={{ marginLeft:2,marginRight:2 , marginBottom:2,marginTop:5}} direction="right">Your Resume</Button>
                         </div>
                     </Grid>   
              </Card>
             </Grid>
-            <Grid>
-                <Card>
+            <Grid  xs={12} md={4} lg={4}>
+                <Card sx={{marginRight:'1rem'}}>
                     <p>Profile Strenth: Exllent</p>
                     <p>Enhance your professional credibility by adding your certifications</p>
                     <Link>Update Certifications</Link>

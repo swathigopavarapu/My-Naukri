@@ -2,15 +2,23 @@ import { Typography,Box, Button } from "@mui/material";
 import React from "react";
 import Modal from '@mui/material/Modal';
 import './Delete.css'
+import { ProfileContext } from "./ProfileStore";
 function DeleteEducation(props){
-//  
+
     
 const handleClose = ()=>{
     console.log('handle close or not')
     props.handleCloseDelete()
 }
+// const handleDeleteEducation= ()=>{
+//   console.log('delete education tab')
+//   handleDeleteEducation()
+
+// }
     
     return(<>
+    <ProfileContext.Consumer>
+      {value=>(
     
     <Modal
         open={props.open}
@@ -31,11 +39,15 @@ const handleClose = ()=>{
           <Typography>{props?.name}</Typography>
           </div> 
 
-         <div> <Button variant="contained">Confirm</Button></div>
+         <div> <Button variant="contained" onClick={()=>value.handleDeleteEducation(props.id)}>Confirm</Button></div>
        
         </Box>
         </div>
+        
+       
       </Modal>
+      )}
+      </ProfileContext.Consumer>
         </> )
 }
 export default DeleteEducation

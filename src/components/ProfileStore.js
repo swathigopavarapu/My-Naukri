@@ -3,7 +3,7 @@ import axios from 'axios';
 import Api from './api'
 
  export const ProfileContext = createContext();
- 
+  
 
  const ProfileStore = (props) =>{
 const[specialisations, updateSpecialisations] = useState([])
@@ -29,6 +29,7 @@ useEffect(()=>{
   getVisaDetails();
   getWorkExperience();
   getEducation();
+ 
 
 },[])
 
@@ -58,7 +59,24 @@ const getEducation = ()=> {
         updateEducation(res.data.data)
     })
 }
-    
+
+
+const handleDeleteEducation = (id)=>{
+    // console.log('delete education tab working',id)
+   Api.delete(`https://tdp--qa--pathfinder.edgenetworks.ai/api/education/${id}`).then(res=>{
+    console.log('the response is',res.data)
+   })
+
+}
+//https://tdp--qa--pathfinder.edgenetworks.ai/api/education
+
+const handleEditEducation =(item)=>{
+    delete item.city;
+    console.log('edit education,item',item)
+    Api.put(`https://tdp--qa--pathfinder.edgenetworks.ai/api/education`,item).then(res=>{
+
+    })
+}
 
 
 
@@ -70,7 +88,9 @@ return(
         projects: projects,
         visa:visa,
         work_experience:work_experience,
-        education,education
+        education,education,
+        handleDeleteEducation:handleDeleteEducation,
+        handleEditEducation:handleEditEducation
      }}>
 {props.children}
      </ProfileContext.Provider>

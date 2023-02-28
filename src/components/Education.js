@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ProfileContext } from "./ProfileStore";
+import ProfileStore, { ProfileContext } from "./ProfileStore";
 import { Grid, Box, Card, Typography,Modal} from "@mui/material"
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -11,12 +11,15 @@ function Education(){
     const[edit,updateEdit] =useState(false)//it is insially false then will be true
     const [name,updateName]=useState('')
     const[institute,updateInstitute]=useState('')//it is initially empty
-     const [item,updateItem]=useState('')
+     const [item,updateItem]=useState('');
+     const [id,setId] = useState('')
+ 
      
-    const handleOpen=(title)=>{
+    const handleOpen=(title,id)=>{
         updateName(title)
-        console.log('delete the function',title)
+        // console.log('delete the function',title)
         updateOpen(true)
+        setId(id)
 
     }
     const handleEdit=(item)=>{
@@ -32,6 +35,9 @@ const handleCloseDelete = () =>{
 }
 const handleEditClose =()=>{
     updateEdit(false)
+}
+const handleDeleteEducation=()=>{
+
 }
 
     return(
@@ -54,7 +60,7 @@ const handleEditClose =()=>{
                                         
       
 
-                                        <Typography ><DeleteIcon fontSize='10px' onClick={() => handleOpen(item.institute)}></DeleteIcon>
+                                        <Typography ><DeleteIcon fontSize='10px' onClick={() => handleOpen(item.institute, item.id)}></DeleteIcon>
             <EditIcon fontSize='10px' onClick={() => handleEdit(item)}></EditIcon></Typography>
                                         
                                         </span>
@@ -92,8 +98,9 @@ const handleEditClose =()=>{
                             </>))}
                           
                     </Grid>
-                    {open ? <DeleteEducation handleCloseDelete={handleCloseDelete} open={open} name={name}  />: null}
+                    {open ? <DeleteEducation handleCloseDelete={handleCloseDelete} id={id} open={open} name={name}  />: null}
                     {edit ? <EditEducation  handleEditClose={handleEditClose} edit={edit} item={item} />: null}
+                   
                 </Box>
             )}
             

@@ -41,7 +41,7 @@ function ProfileTabs(){
         </TabPanel>
 
         <TabPanel value="3" ><PreferenceTab/></TabPanel>
-        <TabPanel value="4">Looks like you have no certifications added. Let's fix that! Tap the button below to add a new certificate.</TabPanel>
+        <TabPanel value="4" >Looks like you have no certifications added. Let's fix that! Tap the button below to add a new certificate.</TabPanel>
         <TabPanel value="5"><ProjectsTab/></TabPanel>
         <TabPanel value="6"><Visa/></TabPanel>
         <TabPanel value="7"><Work_Experience/></TabPanel>
