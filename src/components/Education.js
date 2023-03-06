@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import ProfileStore, { ProfileContext } from "./ProfileStore";
-import { Grid, Box, Card, Typography,Modal} from "@mui/material"
+import { Grid, Box, Card, Typography,Modal, Button} from "@mui/material"
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteEducation from "./DeleteEduction";
-import EditEducation from './EditEducation'
+import EditEducation from './EditEducation';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 function Education(){
     const[open,updateOpen]=useState(false)
@@ -46,9 +47,21 @@ const handleDeleteEducation=()=>{
             {value=>(
                 <Box>
                     <p fontSize='10px'>Pathfinder has added your education experience from your resume and company records</p>
-                    <Grid container spacing={2} margin='10px'>
+                    
+                    <Grid container spacing={2} margin='10px' >
+                        <Grid  xs={3} md={3} lg={3} marginTop='10px'>
+                            <Card  sx={{ p: 2, border: '1px dashed grey' }}  onClick={()=>handleEdit(null)}>
+                            <Box component="span"> 
+                                <Button>
+                                    <AddCircleOutlineIcon style={{marginRight:'5px'}}>
+                                         </AddCircleOutlineIcon> Add Education</Button> 
+                                    </Box>
+                            </Card>
+
+                        </Grid>
                         {value.education.map(item =>(<>
                             <Grid sx={{flexDirection: 'row'}} xs={3} md={3} lg={3} marginBottom='10px' marginLeft='10px'marginTop='10px' marginRight='10px' fontSize='10px'>
+                               
                                 
                                  <Card marginLeft='10px' fontSize='12px'>
                                     <Grid sx={{display: 'flex',flexDirection: 'row',justifyContent:'space-between'}} marginLeft='10px' fontSize='10px'>

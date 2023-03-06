@@ -11,6 +11,7 @@ import ProjectsTab from "./ProjectsTab";
 import Visa from './Visa';
 import Work_Experience from './Work_Experience';
 import Education from "./Education";
+import SkillTab from "./SkillsTab";
 function ProfileTabs(){
     const [value, setValue] = React.useState('1');
 
@@ -20,10 +21,10 @@ function ProfileTabs(){
     
     return(
         <>
-      <Box sx={{ width: '100%', typography: 'body1' }}>
-      <TabContext value={value}>
+      <Box sx={{ width: '100%', typography: 'body1',fontSize:'10px' }} >
+      <TabContext value={value} style={{fontSize:'10px'}} >
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList onChange={handleChange} aria-label="lab API tabs example">
+          <TabList onChange={handleChange} aria-label="lab API tabs example"  >
             <Tab label="Skills & Title" value="1" />
             <Tab label="Specialisation" value="2" />
             <Tab label="Preference" value="3" />
@@ -34,15 +35,15 @@ function ProfileTabs(){
             <Tab label="Education" value="8" />
           </TabList>
         </Box>
-        <TabPanel value="1">Applicable Title & Domains</TabPanel>
+        <TabPanel value="1" ><SkillTab ></SkillTab></TabPanel>
         <TabPanel value="2">
            <SpecialisationTab />
             
         </TabPanel>
 
-        <TabPanel value="3" ><PreferenceTab/></TabPanel>
-        <TabPanel value="4" >Looks like you have no certifications added. Let's fix that! Tap the button below to add a new certificate.</TabPanel>
-        <TabPanel value="5"><ProjectsTab/></TabPanel>
+        <TabPanel value="3" fontSize={{fontSize:'10px'}} ><PreferenceTab/></TabPanel>
+        <TabPanel value="4"  fontSize={{fontSize:'10px'}} >Looks like you have no certifications added. Let's fix that! Tap the button below to add a new certificate.</TabPanel>
+        <TabPanel value="5" fontSize={{fontSize:'10px'}}><ProjectsTab/></TabPanel>
         <TabPanel value="6"><Visa/></TabPanel>
         <TabPanel value="7"><Work_Experience/></TabPanel>
         <TabPanel value="8"> <Education/></TabPanel>

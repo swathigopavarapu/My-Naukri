@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import logo from '../react.jpg';
 import logo1 from'../edge.png';
-import { Box,Grid,  Card, CardContent, TextField, IconButton, Button } from '@mui/material'
+import { Box,Grid,  Card, CardContent, TextField, Button } from '@mui/material'
 import { Link } from "@mui/icons-material";
 import axios  from 'axios'
-import {MailOutlineIcon, Password} from '@mui/icons-material';
-// import { red } from "@mui/material/colors";
-
 import './login.css'
-import { Navigate, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 function Login(){
     const[username, updateusername] = useState('')
@@ -16,7 +13,7 @@ function Login(){
     const navigate = useNavigate()
 
     const handleonClick=()=>{
-        console.log('clicked or not')  
+        // console.log('clicked or not')  
         let payload = {password:password,username:username}
         axios.post('https://tdp--qa--pathfinder.edgenetworks.ai/pf/v1/login',payload).then(res=>{
             localStorage.setItem('access_token',res.data.access_token)
@@ -28,6 +25,7 @@ function Login(){
 
 
         }).catch(err =>{
+            
             
 
         })
@@ -57,8 +55,12 @@ function Login(){
         <TextField id="outlined-basic" label='password' value={password} type='password' variant="outlined" onChange={handlePassword}/>
         </div>
         </CardContent>
-        <Link href="#">Forgot Password</Link>
-        <Button variant="contained" onClick={handleonClick}>LOG IN</Button>
+
+        <div style={{disply:'flex', justifyContent:'end',alignItems:'end' , margin:'10px'}}> Forgot Password
+        <span style={{disply:'flex', justifyContent:'end',alignItems:'end' , margin:'10px'}}> <Button variant="contained" onClick={handleonClick}>LOG IN</Button>
+        </span></div>
+       
+       
     </Card>
     </Grid> 
     

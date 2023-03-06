@@ -9,8 +9,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import StackedLineChartIcon from '@mui/icons-material/StackedLineChart';
-import { Link } from "@mui/icons-material";
-import { display } from "@mui/system";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import './Styles.css'
 import ProfileTabs from "./ProfileTabs";
 import ProfileStore from "./ProfileStore";
@@ -19,14 +18,14 @@ function Profile(){
     return(<>
     <ProfileStore >
     
-    <Grid container spacing={2}>
+    {/* <Grid container spacing={2}>
   <Grid item xs={6}>
     <img src={logo1}></img>
   </Grid>
   <Grid item xs={6}>
     <p>How are you</p>
   </Grid>
-  </Grid>
+  </Grid> */}
 
   <Box   sx={{ flexGrow: 1 }}>
     <Grid container spacing={2} >
@@ -35,26 +34,26 @@ function Profile(){
             <Card container sx={{alignItems:'center',display:'flex',marginRight:'1rem'}} >
                 <Grid xs={12} md={3} lg={3} marginRight={4} marginLeft={2}>
                <span className="" >
-                <Avatar src={logo1}  sx={{ width: 100, height: 100 }}></Avatar>
+                <Avatar src={logo1}  sx={{ width: 100, height: 100 ,marginLeft:'10px'}}></Avatar>
                 </span>
                 
                 </Grid>
                 <Grid  xs={12} md={12} lg={12}>
                   <span sx={{display:'flex',alignItems:'center',margin:'1rem'}} marginTop="2rcm">
-                  <Typography>Poorva Oberoi</Typography>
+                  <Typography style={{color:'blue',fontSize:'12px'}}>Poorva Oberoi</Typography>
                 
                         <Typography variant="inherit" alignContent='center' sx={{display:'flex', alignItems:'center'}} marginTop='2px'> 
-                          <WorkOutlineIcon fontSize="small" padding='2px' sx={{marginRight:'1rem'}}></WorkOutlineIcon>
-                         <span  margin='1rem'> Developer III - Software Engineering</span>
+                          <WorkOutlineIcon fontSize="small" padding='2px' sx={{marginRight:'1rem',color:'lightblue'}}></WorkOutlineIcon>
+                         <span  style={{fontSize:'12px'}}> Developer III - Software Engineering</span>
                           </Typography>
                        
                     <Typography variant="inherit" alignContent='center' sx={{display:'flex', alignItems:'center'}} marginTop='10px ' >
-                    <LocationOnIcon fontSize="small" sx={{marginRight:'1rem'}}></LocationOnIcon>
-                       <span sx={{marginLeft:'1rem'}} marginLeft="2px">Bangalore, Karnataka</span> 
+                    <LocationOnIcon fontSize="small" sx={{marginRight:'1rem',color:'lightblue'}}></LocationOnIcon>
+                       <span style={{fontSize:'12px'}} >Bangalore, Karnataka</span> 
                     </Typography>
-                    <Typography variant="inherit" alignContent='center' sx={{display:'flex', alignItems:'center'}} marginTop='10px' fontSize='10px'>
-                       <StrollerIcon fontSize="small" sx={{marginRight:'1rem'}}></StrollerIcon> 
-                       <span sx={{marginLeft:'1rem'}}>B1</span>
+                    <Typography variant="inherit" alignContent='center' sx={{display:'flex', alignItems:'center'}}  >
+                       <StrollerIcon fontSize="small" sx={{marginRight:'1rem',color:'lightblue'}}></StrollerIcon> 
+                       <span style={{fontSize:'12px'}}>B1</span>
                     </Typography>
                     </span>
                     </Grid>
@@ -69,17 +68,21 @@ function Profile(){
                        
                         </span>
                         <div style={{display:'flex',alignItems:'center'}}>
-                        <Button size="small" variant="contained"sx={{marginBottom:2,marginTop:5}}  direction="right">Download Resume</Button>
-                        <Button size="small" variant="contained" sx={{ marginLeft:2,marginRight:2 , marginBottom:2,marginTop:5}} direction="right">Your Resume</Button>
+                        <Button  variant="contained" style={{ fontSize:'12px', marginTop:'15px', marginRight:'10px',marginLeft:'10px'}}  >Download Resume</Button>
+                        <Button  variant="contained" style={{ fontSize:'12px', marginTop:'15px', marginRight:'10px',marginLeft:'10px'}} >Your Resume</Button>
                         </div>
                     </Grid>   
              </Card>
             </Grid>
             <Grid  xs={12} md={4} lg={4}>
                 <Card sx={{marginRight:'1rem'}}>
-                    <p>Profile Strenth: Exllent</p>
+                  <div style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',fontSize:'12px'}}>
+                  <span>Profile Strenth: Exllent</span>
                     <p>Enhance your professional credibility by adding your certifications</p>
-                    <Link>Update Certifications</Link>
+                    <Typography variant="inherit" alignContent='center' sx={{display:'flex', alignItems:'center',color:'blue '}} marginTop='2px'><span>Update Certifications
+                       <ArrowForwardIosIcon style={{fontSize:'13px',marginLeft:'9px'}}></ArrowForwardIosIcon></span></Typography>
+                  </div>
+                    
                 </Card>
             </Grid>
 

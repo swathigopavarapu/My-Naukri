@@ -9,6 +9,7 @@ function DeleteEducation(props){
 const handleClose = ()=>{
     console.log('handle close or not')
     props.handleCloseDelete()
+    
 }
 // const handleDeleteEducation= ()=>{
 //   console.log('delete education tab')

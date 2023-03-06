@@ -11,28 +11,53 @@ import { Link } from "react-router-dom";
 function Navbar(){
     return(
         <diiv>
-           <Link to='/'></Link> 
+           {/* <Link to='/'></Link> 
            <Link to= '/Home'>Home </Link> 
-             <Link to= '/Home/Profile'>Profile</Link> 
+             <Link to= '/Home/Profile'>Profile</Link>  */}
             <Table>
                 <TableRow>
 
                 
-            {/* <Stack direction='row-reverse'> */}
+            
                 <MenuList> 
                     <MenuItem>
-                    <ListItemIcon>
-                    <GridViewIcon/>
-                    <Link to= '/Home/Profile'><PermIdentityIcon /></Link>
-                    <WorkOutlineIcon/>
-                    <DoneAllIcon/>
-                    <LightbulbIcon/>
-                    <RouteIcon/>
-                    <LineStyleIcon/>
+                      <ListItemIcon>
+                         <GridViewIcon/>
+                       </ListItemIcon>
+                    </MenuItem>
+                    <MenuItem>
+                       <ListItemIcon>
+                        <Link to= '/Home/Profile'><PermIdentityIcon /></Link>
+                        </ListItemIcon>
+                    </MenuItem>
+                        <MenuItem>
+                          <ListItemIcon>  
+                             <WorkOutlineIcon/>
+                          </ListItemIcon>
+                        </MenuItem>
+                       <MenuItem>
+                           <ListItemIcon>
+                              <DoneAllIcon/>
+                            </ListItemIcon>
+                       </MenuItem>
+                         <MenuItem>
+                            <ListItemIcon>
+
+                              <LightbulbIcon/>
+                             </ListItemIcon>
+                        </MenuItem>
+                      <MenuItem>
+                         <ListItemIcon>
+                         <RouteIcon/>
+                          </ListItemIcon>
+                    </MenuItem>
+                     <MenuItem>
+                       <ListItemIcon>
+                           <LineStyleIcon/>
                     </ListItemIcon>
                     </MenuItem>
                 </MenuList>
-            {/* </Stack> */}
+            
             </TableRow>
             </Table>
         </diiv>

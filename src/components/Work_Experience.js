@@ -4,17 +4,37 @@ import { ProfileContext } from "./ProfileStore";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteWork_Experience from './DeleteWork_Experience'
+import Editwork_Experience from "./Editwork_Experience";
 function Work_Experience(props){
     const [open,updateOpen]=useState(false)
     const [name,updateName]=useState('')
-    const handleOpen =(title)=>{
+    const[id,setId]=useState('')
+    const[edit,updateEdit]=useState(false)
+    const[work,updateWork]=useState('')
+    
+    
+    const handleOpen =(title,id)=>{
         updateName(title)
         console.log('delete the function',title)
         updateOpen(true)
+        setId(id)
+
+        
     }
 const handleClose=()=>{
     console.log('close the function')
     updateOpen(false)
+}
+const handleEditWork_Experience=(work,)=>{
+    console.log('work will be edit',work )
+    
+    updateWork(work)
+    updateEdit(true)
+
+
+}
+const handleEditClose=()=>{
+    updateEdit(false)
 }
 
     return(
@@ -30,7 +50,8 @@ const handleClose=()=>{
                             <Grid sx={{display: 'flex',flexDirection: 'row',justifyContent:'space-between'}} marginTop='10px'marginLeft='10px'marginRight='10px' marginBottom='10px'>
                                 <Typography fontSize='10px'>{work.title}</Typography>
                                 <span>
-                                     <Typography ><DeleteIcon fontSize='10px'onClick={()=>handleOpen(work.title)} ></DeleteIcon> <EditIcon fontSize='10px'></EditIcon></Typography>
+                                     <Typography ><DeleteIcon fontSize='10px'onClick={()=>handleOpen(work.title,work.id)} ></DeleteIcon>
+                                      <EditIcon fontSize='10px' onClick={()=>handleEditWork_Experience(work)} ></EditIcon></Typography>
                                          </span>
                                 
                             </Grid><hr></hr>
@@ -52,8 +73,8 @@ const handleClose=()=>{
 
                             </Grid><hr></hr>
                             <Grid sx={{display: 'flex',flexDirection: 'column',justifyContent:'space-between'}} marginTop='10px'marginLeft='10px'marginRight='10px' marginBottom='10px'>
-                                <Typography fontSize='12px'>Responsibilities</Typography>
-                                <Typography fontSize='12px'>Edit to select</Typography>
+                                <span><Typography fontSize='12px'>Responsibilities</Typography>
+                                <Typography fontSize='12px'>{work.responsibilities}</Typography></span>
 
                             </Grid>
 
@@ -61,7 +82,8 @@ const handleClose=()=>{
                     </Grid>
                     ))}
 
-                    { open? < DeleteWork_Experience handleClose={handleClose} open={open} name={name}/>: null}
+                    { open? < DeleteWork_Experience handleClose={handleClose} id={id} open={open} name={name}/>: null}
+                     { edit ? < Editwork_Experience handleEditClose={handleEditClose} edit={edit} id={id} work={work}/>: null }
 
                     </Grid>
                 </Box>

@@ -7,6 +7,34 @@
     background-color:white;
     border: '2px solid black';
     box-shadow: 24;
-    p: 2px;
+  
     
 }
+.divClass{
+   
+
+    display: flex;
+    align-items: center;
+    border: 1px solid;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 3px;
+}
+.divClassSelected{
+    display: flex;
+    align-items: center;
+    border: 1px solid blue  ;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 3px; 
+}
+/* .divClassSecondary{
+    display: flex;
+    align-items: center;
+    border: 1px solid blue  ;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 3px;
+
+
+} */
