@@ -9,30 +9,29 @@ import LineStyleIcon from '@mui/icons-material/LineStyle';
 import React from "react";
 import { Link } from "react-router-dom";
 function Navbar(){
-    return(
-        <diiv>
-           {/* <Link to='/'></Link> 
-           <Link to= '/Home'>Home </Link> 
-             <Link to= '/Home/Profile'>Profile</Link>  */}
-            <Table>
-                <TableRow>
+    return(<>
+       
+          
+            
 
                 
             
-                <MenuList> 
-                    <MenuItem>
-                      <ListItemIcon>
+                
+                  <MenuItem>
+                      
                          <GridViewIcon/>
-                       </ListItemIcon>
+                    
                     </MenuItem>
+                    
                     <MenuItem>
                        <ListItemIcon>
                         <Link to= '/Home/Profile'><PermIdentityIcon /></Link>
                         </ListItemIcon>
                     </MenuItem>
                         <MenuItem>
-                          <ListItemIcon>  
-                             <WorkOutlineIcon/>
+                          <ListItemIcon>
+                            <Link to='/Home/SmartJobs'><WorkOutlineIcon/></Link>  
+                             
                           </ListItemIcon>
                         </MenuItem>
                        <MenuItem>
@@ -56,11 +55,11 @@ function Navbar(){
                            <LineStyleIcon/>
                     </ListItemIcon>
                     </MenuItem>
-                </MenuList>
+                
             
-            </TableRow>
-            </Table>
-        </diiv>
+         
+          </>
+       
     )
 }
 export default Navbar

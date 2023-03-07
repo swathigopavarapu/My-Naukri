@@ -5,7 +5,7 @@ import Api from './api'
  export const ProfileContext = createContext();
   
 
- const ProfileStore = (props) =>{
+const ProfileStore = (props) =>{
 const[specialisations, updateSpecialisations] = useState([])
 const[preferences,updatePreferences]=useState([])
 const[projects, updateProjects]=useState([])
@@ -25,6 +25,9 @@ useEffect(()=>{
         
 
     })
+
+
+
     Api.get('https://tdp--qa--pathfinder.edgenetworks.ai/api/preferences/EN1004').then(res=>{
             console.log('api is working are not',res.data)
             updatePreferences(res.data)          

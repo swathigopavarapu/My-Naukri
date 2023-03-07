@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Box, Grid,Card, Typography} from '@mui/material'
+import {Box, Grid,Card, Typography, CardContent} from '@mui/material'
 import { ProfileContext } from './ProfileStore';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
@@ -14,37 +14,66 @@ function PreferenceTab(){
     const [preferences,updatePreferences]=useState([])
 
 
-     let skills = ['java','python','core java'] 
+    //  let skills = ['java','python','core java'] 
     
     
     return(<>
+    <ProfileContext>
+        {value=>(<>
+        {console.log('preferences value',value.preferences[0].roles )}
     <Grid container spacing={1} >
         <Grid xs={4} md={4} lg={4}>
-            <Card>
-                <Typography variant="inherit" alignContent='center' sx={{display:'flex', alignItems:'center'}} marginTop='2px'> 
-                    <WorkOutlineIcon fontSize="small" padding='2px' sx={{marginRight:'1rem',color:'lightblue'}}></WorkOutlineIcon>
-                        <span  style={{fontSize:'12px'}}> Roles </span>
-                </Typography>
+            
+                        <Card style={{marginRight:'10px'}} >
+               
+                <div  >  <WorkOutlineIcon fontSize="small" padding='2px'
+                 sx={{marginRight:'1rem',color:'lightblue',marginLeft:'1rem'}}></WorkOutlineIcon>
+                        Roles </div>
+                        <span style={{padding:'10px'}}>
+                        {value.preferences[0].roles.map(item=>(<>
+                       <span>{item.name}</span>
+                     
+                     
+                        </>))}
+                        </span>
+                        
+
+               
+
+            </Card>
+           
+
+        </Grid>
+        <Grid xs={4} md={4} lg={4}>
+            <Card style={{marginRight:'10px',marginBottom:'10px'}}>
+                <div style={{fontSize:'12px'}}>
+                <WorkOutlineIcon fontSize="small" padding='2px'  sx={{marginRight:'1rem',color:'lightblue'}}></WorkOutlineIcon>
+                    Titles </div>
+                    <span style={{margin:'10px'}}>
+                    {value.preferences[0].titles.map(item=>(<>
+                    <Typography fontSize='10px'>{item}</Typography></>))}
+                    </span>
+                
+                  
+               
 
             </Card>
 
         </Grid>
         <Grid xs={4} md={4} lg={4}>
             <Card>
-               <Typography variant="inherit" alignContent='center' sx={{display:'flex', alignItems:'center'}} marginTop='2px'> 
-                  <WorkOutlineIcon fontSize="small" padding='2px' sx={{marginRight:'1rem',color:'lightblue'}}></WorkOutlineIcon>
-                    <span  style={{fontSize:'12px'}}> Titles </span>
-                </Typography>
-
-            </Card>
-
-        </Grid>
-        <Grid xs={4} md={4} lg={4}>
-            <Card>
-            <Typography variant="inherit" alignContent='center' sx={{display:'flex', alignItems:'center'}} marginTop='2px'> 
+            <div style={{fontSize:'12px'}}>
                   <LightbulbIcon fontSize="small" padding='2px' sx={{marginRight:'1rem',color:'lightblue'}}></LightbulbIcon>
-                    <span  style={{fontSize:'12px'}}> Skills </span>
-                </Typography>
+                    Skills </div>
+                    <span style={{margin:'10px'}}>
+                    
+                    {value.preferences[0].skills.map(item=>(<>
+                    <span>
+                        {item}, </span>
+                    </>))}
+                    </span>
+                    
+              
 
             </Card>
 
@@ -53,32 +82,55 @@ function PreferenceTab(){
     </Grid>
     <Grid container spacing={1}>
     <Grid xs={4} md={4} lg={4}>
-        <Card style={{marginTop:'10px'}}>
-            <Typography variant="inherit" alignContent='center' sx={{display:'flex', alignItems:'center'}} marginTop='2px'> 
+        <Card style={{marginRight:'10px'}}>
+            <div>
+            
                 <ArchitectureIcon fontSize="small" padding='2px' sx={{marginRight:'1rem',color:'lightblue'}}>
                 </ArchitectureIcon>
-                    <span  style={{fontSize:'12px'}}> Functions </span>
-            </Typography>
+                    Functions </div>
+                   <span style={{margin:'10px'}}>
+                   {value.preferences[0].functions.map(item=>(<>
+                    <span>{item.name}</span></>))}
+                   </span>
+                    
+            
 
         </Card>
     </Grid>
     <Grid xs={4} md={4} lg={4}>
-        <Card style={{marginTop:'10px'}}>
-            <Typography variant="inherit" alignContent='center' sx={{display:'flex', alignItems:'center'}} marginTop='2px'> 
+        <Card style={{marginTop:'10px',marginRight:'10px'}}>
+           <div>
                 <GradeIcon fontSize="small" padding='2px' sx={{marginRight:'1rem',color:'lightblue'}}>
                 </GradeIcon>
-                    <span  style={{fontSize:'12px'}}> Grades </span>
-            </Typography>
+                
+                     Grades </div>
+                    <span >
+                    {value.preferences[0].grades.map(item=>(
+                        <>
+                        <span style={{margin:'10px'}}>
+                            {item}</span></>
+                    ))}
+
+                    </span>
+                   
+            
 
         </Card>
     </Grid>
     <Grid xs={4} md={4} lg={4}>
-        <Card style={{marginTop:'10px'}}>
-            <Typography variant="inherit" alignContent='center' sx={{display:'flex', alignItems:'center'}} marginTop='2px'> 
+        <Card style={{marginTop:'10px',marginRight:'10px'}}>
+          
                 <LocationOnIcon fontSize="small" padding='2px' sx={{marginRight:'1rem',color:'lightblue'}}>
                 </LocationOnIcon>
                     <span  style={{fontSize:'12px'}}> Locations </span>
-            </Typography>
+                    <div style={{margin:'10px'}}>
+                    {value.preferences[0].locations.map(item=>(<>
+                    <div>
+                        {item.name}</div></>))}
+
+                    </div>
+                    
+         
 
         </Card>
     </Grid>
@@ -86,24 +138,31 @@ function PreferenceTab(){
     </Grid>
     <Grid container spacing={1}>
         <Grid xs={4} md={4} lg={4}>
-            <Card style={{marginTop:'10px'}}>
-            <Typography variant="inherit" alignContent='center' sx={{display:'flex', alignItems:'center'}} marginTop='2px'> 
+            <Card style={{marginTop:'10px',marginRight:'10px'}}>
+            
                 <PersonAddIcon fontSize="small" padding='2px' sx={{marginRight:'1rem',color:'lightblue'}}>
                 </PersonAddIcon>
                     <span  style={{fontSize:'12px'}}> Managers </span>
-            </Typography>
+                    
+                    {value.preferences[0].managers.map(item=>(<>
+                    <div>
+                        {item}</div></>))}
+           
 
             </Card>
 
         </Grid>
         <Grid xs={4} md={4} lg={4}>
+            
             <Card style={{marginTop:'10px'}}>
-            <Typography variant="inherit" alignContent='center' sx={{display:'flex', alignItems:'center'}} marginTop='2px'> 
+           
                 <ApartmentIcon fontSize="small" padding='2px' sx={{marginRight:'1rem',color:'lightblue'}}>
                 </ApartmentIcon>
-                    <span  style={{fontSize:'12px'}}> Accounts </span>
-            </Typography>
-
+                    <span  style={{fontSize:'12px'}}>Accounts  </span>
+                    {value.preferences[0].accounts.map(item=>(<>
+                    <div>
+                        {item}</div></>))}
+            
             </Card>
 
         </Grid>
@@ -111,8 +170,8 @@ function PreferenceTab(){
 
     </Grid>
    
-    
-  
+    </> )}
+    </ProfileContext>
     
     </>)
 } 
